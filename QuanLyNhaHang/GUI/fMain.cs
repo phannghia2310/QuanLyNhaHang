@@ -47,7 +47,7 @@ namespace QuanLyNhaHang.GUI
         {
             DateTime dateTime = DateTime.Now;
             this.lb_Time.Text = dateTime.ToString("HH:mm:ss");
-            this.lb_Date.Text = dateTime.ToString("dd/MM/yyyy");
+            this.lb_Date.Text = dateTime.ToString("D");
         }
     }
 }

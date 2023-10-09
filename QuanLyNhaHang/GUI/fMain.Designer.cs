@@ -93,7 +93,7 @@
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(125, 12);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(125, 36);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(73, 64);
@@ -105,7 +105,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.label11.Location = new System.Drawing.Point(225, 28);
+            this.label11.Location = new System.Drawing.Point(225, 52);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(94, 35);
             this.label11.TabIndex = 7;
@@ -119,10 +119,10 @@
             // 
             this.lb_Time.AutoSize = true;
             this.lb_Time.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Time.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.lb_Time.Location = new System.Drawing.Point(576, 22);
+            this.lb_Time.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Time.Location = new System.Drawing.Point(997, 52);
             this.lb_Time.Name = "lb_Time";
-            this.lb_Time.Size = new System.Drawing.Size(142, 46);
+            this.lb_Time.Size = new System.Drawing.Size(103, 35);
             this.lb_Time.TabIndex = 8;
             this.lb_Time.Text = "12:00:00";
             // 
@@ -130,12 +130,12 @@
             // 
             this.lb_Date.AutoSize = true;
             this.lb_Date.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Date.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.lb_Date.Location = new System.Drawing.Point(927, 22);
+            this.lb_Date.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Date.Location = new System.Drawing.Point(1125, 52);
             this.lb_Date.Name = "lb_Date";
-            this.lb_Date.Size = new System.Drawing.Size(172, 46);
+            this.lb_Date.Size = new System.Drawing.Size(207, 35);
             this.lb_Date.TabIndex = 9;
-            this.lb_Date.Text = "6/10/2023";
+            this.lb_Date.Text = "Mon, 15 Jun 2023";
             // 
             // btn_Logout
             // 
@@ -145,7 +145,7 @@
             this.btn_Logout.Controls.Add(this.label10);
             this.btn_Logout.Controls.Add(this.pictureBox10);
             this.btn_Logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Logout.Location = new System.Drawing.Point(870, 597);
+            this.btn_Logout.Location = new System.Drawing.Point(1018, 618);
             this.btn_Logout.Name = "btn_Logout";
             this.btn_Logout.Size = new System.Drawing.Size(314, 143);
             this.btn_Logout.TabIndex = 5;
@@ -187,7 +187,7 @@
             this.btn_Bill.Controls.Add(this.label9);
             this.btn_Bill.Controls.Add(this.pictureBox9);
             this.btn_Bill.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Bill.Location = new System.Drawing.Point(123, 597);
+            this.btn_Bill.Location = new System.Drawing.Point(123, 618);
             this.btn_Bill.Name = "btn_Bill";
             this.btn_Bill.Size = new System.Drawing.Size(314, 143);
             this.btn_Bill.TabIndex = 4;
@@ -226,7 +226,7 @@
             this.btn_Statistical.Controls.Add(this.label2);
             this.btn_Statistical.Controls.Add(this.pictureBox2);
             this.btn_Statistical.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Statistical.Location = new System.Drawing.Point(123, 440);
+            this.btn_Statistical.Location = new System.Drawing.Point(123, 461);
             this.btn_Statistical.Name = "btn_Statistical";
             this.btn_Statistical.Size = new System.Drawing.Size(314, 143);
             this.btn_Statistical.TabIndex = 4;
@@ -265,7 +265,7 @@
             this.btn_Contact.Controls.Add(this.label8);
             this.btn_Contact.Controls.Add(this.pictureBox8);
             this.btn_Contact.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Contact.Location = new System.Drawing.Point(1026, 453);
+            this.btn_Contact.Location = new System.Drawing.Point(1182, 474);
             this.btn_Contact.Name = "btn_Contact";
             this.btn_Contact.Size = new System.Drawing.Size(150, 119);
             this.btn_Contact.TabIndex = 5;
@@ -307,7 +307,7 @@
             this.btn_Lock.Controls.Add(this.label7);
             this.btn_Lock.Controls.Add(this.pictureBox7);
             this.btn_Lock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Lock.Location = new System.Drawing.Point(870, 453);
+            this.btn_Lock.Location = new System.Drawing.Point(1018, 474);
             this.btn_Lock.Name = "btn_Lock";
             this.btn_Lock.Size = new System.Drawing.Size(150, 119);
             this.btn_Lock.TabIndex = 4;
@@ -349,9 +349,9 @@
             this.btn_Account.Controls.Add(this.label6);
             this.btn_Account.Controls.Add(this.pictureBox6);
             this.btn_Account.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Account.Location = new System.Drawing.Point(870, 99);
+            this.btn_Account.Location = new System.Drawing.Point(1018, 120);
             this.btn_Account.Name = "btn_Account";
-            this.btn_Account.Size = new System.Drawing.Size(306, 329);
+            this.btn_Account.Size = new System.Drawing.Size(314, 329);
             this.btn_Account.TabIndex = 4;
             this.btn_Account.TopColor = System.Drawing.Color.Empty;
             // 
@@ -388,7 +388,7 @@
             this.btn_Employee.Controls.Add(this.label5);
             this.btn_Employee.Controls.Add(this.pictureBox5);
             this.btn_Employee.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Employee.Location = new System.Drawing.Point(498, 411);
+            this.btn_Employee.Location = new System.Drawing.Point(560, 432);
             this.btn_Employee.Name = "btn_Employee";
             this.btn_Employee.Size = new System.Drawing.Size(314, 329);
             this.btn_Employee.TabIndex = 3;
@@ -427,7 +427,7 @@
             this.btn_Menu.Controls.Add(this.label4);
             this.btn_Menu.Controls.Add(this.pictureBox4);
             this.btn_Menu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Menu.Location = new System.Drawing.Point(498, 255);
+            this.btn_Menu.Location = new System.Drawing.Point(560, 276);
             this.btn_Menu.Name = "btn_Menu";
             this.btn_Menu.Size = new System.Drawing.Size(314, 143);
             this.btn_Menu.TabIndex = 4;
@@ -466,7 +466,7 @@
             this.btn_Location.Controls.Add(this.label3);
             this.btn_Location.Controls.Add(this.pictureBox3);
             this.btn_Location.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Location.Location = new System.Drawing.Point(498, 99);
+            this.btn_Location.Location = new System.Drawing.Point(560, 120);
             this.btn_Location.Name = "btn_Location";
             this.btn_Location.Size = new System.Drawing.Size(314, 143);
             this.btn_Location.TabIndex = 3;
@@ -505,7 +505,7 @@
             this.btn_Order.Controls.Add(this.label1);
             this.btn_Order.Controls.Add(this.pictureBox1);
             this.btn_Order.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Order.Location = new System.Drawing.Point(125, 99);
+            this.btn_Order.Location = new System.Drawing.Point(125, 120);
             this.btn_Order.Name = "btn_Order";
             this.btn_Order.Size = new System.Drawing.Size(312, 329);
             this.btn_Order.TabIndex = 0;
@@ -541,7 +541,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1319, 798);
+            this.ClientSize = new System.Drawing.Size(1467, 823);
             this.Controls.Add(this.lb_Date);
             this.Controls.Add(this.lb_Time);
             this.Controls.Add(this.label11);
@@ -560,6 +560,7 @@
             this.Name = "fMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fMain";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.btn_Logout.ResumeLayout(false);
