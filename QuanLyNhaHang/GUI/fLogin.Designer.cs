@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             this.pn_Login = new System.Windows.Forms.Panel();
+            this.btn_Login = new System.Windows.Forms.Button();
             this.cb_ShowPass = new System.Windows.Forms.CheckBox();
             this.txt_Password = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PB_Close = new System.Windows.Forms.PictureBox();
-            this.btn_Login = new System.Windows.Forms.Button();
             this.pn_Login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Close)).BeginInit();
@@ -58,6 +58,20 @@
             this.pn_Login.Name = "pn_Login";
             this.pn_Login.Size = new System.Drawing.Size(461, 557);
             this.pn_Login.TabIndex = 0;
+            // 
+            // btn_Login
+            // 
+            this.btn_Login.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btn_Login.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Login.Location = new System.Drawing.Point(146, 444);
+            this.btn_Login.Name = "btn_Login";
+            this.btn_Login.Size = new System.Drawing.Size(160, 66);
+            this.btn_Login.TabIndex = 6;
+            this.btn_Login.Text = "ĐĂNG NHẬP";
+            this.btn_Login.UseVisualStyleBackColor = false;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // cb_ShowPass
             // 
@@ -144,20 +158,6 @@
             this.PB_Close.TabStop = false;
             this.PB_Close.Click += new System.EventHandler(this.PB_Close_Click);
             // 
-            // btn_Login
-            // 
-            this.btn_Login.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btn_Login.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Login.Location = new System.Drawing.Point(146, 444);
-            this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(160, 66);
-            this.btn_Login.TabIndex = 6;
-            this.btn_Login.Text = "ĐĂNG NHẬP";
-            this.btn_Login.UseVisualStyleBackColor = false;
-            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
-            // 
             // fLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -169,6 +169,7 @@
             this.Controls.Add(this.PB_Close);
             this.Controls.Add(this.pn_Login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fLogin";

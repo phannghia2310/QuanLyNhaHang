@@ -43,6 +43,34 @@ namespace QuanLyNhaHang.GUI
             fcontact.Show();
         }
 
+        private void btn_Employee_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fEmployee femp = new fEmployee();
+            femp.Show();
+        }
+
+        private void btn_Account_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fAccount faccount = new fAccount();
+            faccount.Show();
+        }
+
+        private void btn_Menu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fMenu fmenu = new fMenu();
+            fmenu.Show();
+        }
+
+        private void btn_Location_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fLocation flocation = new fLocation();
+            flocation.Show();
+        }
+
         private void time_DateTime_Tick(object sender, EventArgs e)
         {
             DateTime dateTime = DateTime.Now;

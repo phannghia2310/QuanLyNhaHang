@@ -21,5 +21,15 @@ namespace QuanLyNhaHang.GUI
         {
             pn_Lock.BackColor = Color.FromArgb(170, 1, 1, 1);
         }
+
+        private void txt_PassWord_TextChanged(object sender, EventArgs e)
+        {
+            if(txt_PassWord.Text == "123")
+            {
+                this.Close();
+                fMain fmain = new fMain();
+                fmain.Show();
+            }
+        }
     }
 }

@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.time_DateTime = new System.Windows.Forms.Timer(this.components);
             this.lb_Time = new System.Windows.Forms.Label();
             this.lb_Date = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btn_Logout = new QuanLyNhaHang.GradientPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -88,19 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(125, 36);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(73, 64);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 6;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -119,10 +106,10 @@
             // 
             this.lb_Time.AutoSize = true;
             this.lb_Time.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Time.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Time.Location = new System.Drawing.Point(997, 52);
+            this.lb_Time.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Time.Location = new System.Drawing.Point(907, 55);
             this.lb_Time.Name = "lb_Time";
-            this.lb_Time.Size = new System.Drawing.Size(103, 35);
+            this.lb_Time.Size = new System.Drawing.Size(102, 32);
             this.lb_Time.TabIndex = 8;
             this.lb_Time.Text = "12:00:00";
             // 
@@ -130,12 +117,25 @@
             // 
             this.lb_Date.AutoSize = true;
             this.lb_Date.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Date.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Date.Location = new System.Drawing.Point(1125, 52);
+            this.lb_Date.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Date.Location = new System.Drawing.Point(1035, 55);
             this.lb_Date.Name = "lb_Date";
-            this.lb_Date.Size = new System.Drawing.Size(207, 35);
+            this.lb_Date.Size = new System.Drawing.Size(297, 32);
             this.lb_Date.TabIndex = 9;
-            this.lb_Date.Text = "Mon, 15 Jun 2023";
+            this.lb_Date.Text = "Monday, October 15, 2023";
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(125, 36);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(73, 64);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox1.TabIndex = 6;
+            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // btn_Logout
             // 
@@ -354,6 +354,7 @@
             this.btn_Account.Size = new System.Drawing.Size(314, 329);
             this.btn_Account.TabIndex = 4;
             this.btn_Account.TopColor = System.Drawing.Color.Empty;
+            this.btn_Account.Click += new System.EventHandler(this.btn_Account_Click);
             // 
             // label6
             // 
@@ -361,11 +362,12 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(11, 247);
+            this.label6.Location = new System.Drawing.Point(19, 247);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(251, 26);
             this.label6.TabIndex = 1;
             this.label6.Text = "QUẢN LÝ TÀI KHOẢN";
+            this.label6.Click += new System.EventHandler(this.btn_Account_Click);
             // 
             // pictureBox6
             // 
@@ -379,6 +381,7 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 0;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.btn_Account_Click);
             // 
             // btn_Employee
             // 
@@ -393,6 +396,7 @@
             this.btn_Employee.Size = new System.Drawing.Size(314, 329);
             this.btn_Employee.TabIndex = 3;
             this.btn_Employee.TopColor = System.Drawing.Color.Empty;
+            this.btn_Employee.Click += new System.EventHandler(this.btn_Employee_Click);
             // 
             // label5
             // 
@@ -405,6 +409,7 @@
             this.label5.Size = new System.Drawing.Size(254, 26);
             this.label5.TabIndex = 1;
             this.label5.Text = "QUẢN LÝ NHÂN VIÊN";
+            this.label5.Click += new System.EventHandler(this.btn_Employee_Click);
             // 
             // pictureBox5
             // 
@@ -418,6 +423,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.btn_Employee_Click);
             // 
             // btn_Menu
             // 
@@ -432,6 +438,7 @@
             this.btn_Menu.Size = new System.Drawing.Size(314, 143);
             this.btn_Menu.TabIndex = 4;
             this.btn_Menu.TopColor = System.Drawing.Color.Empty;
+            this.btn_Menu.Click += new System.EventHandler(this.btn_Menu_Click);
             // 
             // label4
             // 
@@ -471,6 +478,7 @@
             this.btn_Location.Size = new System.Drawing.Size(314, 143);
             this.btn_Location.TabIndex = 3;
             this.btn_Location.TopColor = System.Drawing.Color.Empty;
+            this.btn_Location.Click += new System.EventHandler(this.btn_Location_Click);
             // 
             // label3
             // 
@@ -483,6 +491,7 @@
             this.label3.Size = new System.Drawing.Size(231, 26);
             this.label3.TabIndex = 1;
             this.label3.Text = "QUẢN LÝ KHU VỰC";
+            this.label3.Click += new System.EventHandler(this.btn_Location_Click);
             // 
             // pictureBox3
             // 
@@ -496,6 +505,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.btn_Location_Click);
             // 
             // btn_Order
             // 
@@ -557,10 +567,10 @@
             this.Controls.Add(this.btn_Location);
             this.Controls.Add(this.btn_Order);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fMain";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.btn_Logout.ResumeLayout(false);

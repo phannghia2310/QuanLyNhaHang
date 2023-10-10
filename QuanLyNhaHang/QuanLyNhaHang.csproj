@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>cooking.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.Licensing.5.0.0\lib\net40\Bunifu.Licensing.dll</HintPath>
@@ -348,6 +351,18 @@
     <Compile Include="GUI\fContact.Designer.cs">
       <DependentUpon>fContact.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fEmployee.Designer.cs">
+      <DependentUpon>fEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fLocation.Designer.cs">
+      <DependentUpon>fLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fLock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +381,12 @@
     <Compile Include="GUI\fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fMenu.Designer.cs">
+      <DependentUpon>fMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\fAccount.resx">
@@ -373,6 +394,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fContact.resx">
       <DependentUpon>fContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fEmployee.resx">
+      <DependentUpon>fEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fLocation.resx">
+      <DependentUpon>fLocation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fLock.resx">
       <DependentUpon>fLock.cs</DependentUpon>
@@ -382,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fMenu.resx">
+      <DependentUpon>fMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -412,6 +442,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\loginbg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cooking.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />

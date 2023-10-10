@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fContact));
             this.gradientPanel1 = new QuanLyNhaHang.GradientPanel();
+            this.btn_Hide = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,8 +54,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_Hide = new System.Windows.Forms.PictureBox();
             this.gradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Hide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -63,7 +64,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
             this.gradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Hide)).BeginInit();
             this.SuspendLayout();
             // 
             // gradientPanel1
@@ -93,6 +93,20 @@
             this.gradientPanel1.TabIndex = 0;
             this.gradientPanel1.TopColor = System.Drawing.Color.Empty;
             this.gradientPanel1.UseWaitCursor = true;
+            // 
+            // btn_Hide
+            // 
+            this.btn_Hide.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Hide.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Hide.BackgroundImage")));
+            this.btn_Hide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Hide.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.btn_Hide.Location = new System.Drawing.Point(1235, 13);
+            this.btn_Hide.Name = "btn_Hide";
+            this.btn_Hide.Size = new System.Drawing.Size(33, 28);
+            this.btn_Hide.TabIndex = 13;
+            this.btn_Hide.TabStop = false;
+            this.btn_Hide.UseWaitCursor = true;
+            this.btn_Hide.Click += new System.EventHandler(this.btn_Hide_Click);
             // 
             // label12
             // 
@@ -377,20 +391,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "THÔNG TIN LIÊN HỆ";
             // 
-            // btn_Hide
-            // 
-            this.btn_Hide.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Hide.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Hide.BackgroundImage")));
-            this.btn_Hide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Hide.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.btn_Hide.Location = new System.Drawing.Point(1235, 13);
-            this.btn_Hide.Name = "btn_Hide";
-            this.btn_Hide.Size = new System.Drawing.Size(33, 28);
-            this.btn_Hide.TabIndex = 13;
-            this.btn_Hide.TabStop = false;
-            this.btn_Hide.UseWaitCursor = true;
-            this.btn_Hide.Click += new System.EventHandler(this.btn_Hide_Click);
-            // 
             // fContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -400,11 +400,13 @@
             this.Controls.Add(this.gradientPanel2);
             this.Controls.Add(this.gradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fContact";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fContact";
             this.gradientPanel1.ResumeLayout(false);
             this.gradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Hide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -414,7 +416,6 @@
             this.gradientPanel2.ResumeLayout(false);
             this.gradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Hide)).EndInit();
             this.ResumeLayout(false);
 
         }
