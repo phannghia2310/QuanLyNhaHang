@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace QuanLyNhaHang.GUI
 {
     public partial class fMain : Form
     {
+        private SqlConnection conn {  get; set; }
         public fMain()
         {
             InitializeComponent();
@@ -69,6 +71,27 @@ namespace QuanLyNhaHang.GUI
             this.Hide();
             fLocation flocation = new fLocation();
             flocation.Show();
+        }
+
+        private void btn_Bill_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fPaymentHistory fpayment = new fPaymentHistory();
+            fpayment.Show();
+        }
+
+        private void btn_Statistical_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fDashboard fdashboard = new fDashboard();
+            fdashboard.Show();
+        }
+
+        private void btn_Order_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fOrder forder = new fOrder();
+            forder.Show();
         }
 
         private void time_DateTime_Tick(object sender, EventArgs e)
