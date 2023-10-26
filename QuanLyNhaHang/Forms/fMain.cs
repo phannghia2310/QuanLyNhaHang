@@ -21,6 +21,8 @@ namespace QuanLyNhaHang.GUI
 
         private void fMain_Load(object sender, EventArgs e)
         {
+            lb_ChucVu.Text = fLogin.tenchucvu;
+            lb_TenNhanVien.Text = fLogin.tennhanvien;
             time_DateTime.Start();
         }
 

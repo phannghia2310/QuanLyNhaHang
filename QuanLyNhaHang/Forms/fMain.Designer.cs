@@ -34,6 +34,8 @@
             this.time_DateTime = new System.Windows.Forms.Timer(this.components);
             this.lb_Time = new System.Windows.Forms.Label();
             this.lb_Date = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lb_ChucVu = new System.Windows.Forms.Label();
             this.btn_Logout = new QuanLyNhaHang.GradientPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -64,8 +66,7 @@
             this.btn_Order = new QuanLyNhaHang.GradientPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.lb_ChucVu = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.btn_Logout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.btn_Bill.SuspendLayout();
@@ -86,7 +87,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.btn_Order.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_TenNhanVien
@@ -124,6 +124,29 @@
             this.lb_Date.Size = new System.Drawing.Size(297, 32);
             this.lb_Date.TabIndex = 9;
             this.lb_Date.Text = "Monday, October 15, 2023";
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(125, 36);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(73, 64);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox1.TabIndex = 6;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
+            // lb_ChucVu
+            // 
+            this.lb_ChucVu.AutoSize = true;
+            this.lb_ChucVu.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lb_ChucVu.Location = new System.Drawing.Point(224, 36);
+            this.lb_ChucVu.Name = "lb_ChucVu";
+            this.lb_ChucVu.Size = new System.Drawing.Size(73, 25);
+            this.lb_ChucVu.TabIndex = 10;
+            this.lb_ChucVu.Text = "label12";
             // 
             // btn_Logout
             // 
@@ -543,29 +566,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.btn_Order_Click);
             // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(125, 36);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(73, 64);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 6;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
-            // lb_ChucVu
-            // 
-            this.lb_ChucVu.AutoSize = true;
-            this.lb_ChucVu.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lb_ChucVu.Location = new System.Drawing.Point(224, 36);
-            this.lb_ChucVu.Name = "lb_ChucVu";
-            this.lb_ChucVu.Size = new System.Drawing.Size(73, 25);
-            this.lb_ChucVu.TabIndex = 10;
-            this.lb_ChucVu.Text = "label12";
-            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -593,6 +593,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fMain";
             this.Load += new System.EventHandler(this.fMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.btn_Logout.ResumeLayout(false);
             this.btn_Logout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -623,7 +624,6 @@
             this.btn_Order.ResumeLayout(false);
             this.btn_Order.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

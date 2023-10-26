@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -50,6 +51,35 @@ namespace QuanLyNhaHang.DataLayer
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return dt;
+        }
+
+        public string GetValue(string select, string colName)
+        {
+            string value = "";
+
+            try
+            {
+                using (cnn = new SqlConnection(strConnection))
+                {
+                    cnn.Open();
+                    using (cmd = new SqlCommand(select, cnn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                value = (string)(reader[$"{colName}"]);
+                            }
+                        }
+                    }
+                    cnn.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return value;
         }
 
         public bool CheckKey(string sql)

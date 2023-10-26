@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyNhaHang.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,7 @@ namespace QuanLyNhaHang.GUI
 
         private void txt_PassWord_TextChanged(object sender, EventArgs e)
         {
-            if(txt_PassWord.Text == "123")
+            if(txt_PassWord.Text == UserLogin.MatKhau)
             {
                 this.Close();
                 fMain fmain = new fMain();

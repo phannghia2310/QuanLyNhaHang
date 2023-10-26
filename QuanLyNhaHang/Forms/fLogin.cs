@@ -7,11 +7,21 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using Bunifu.Framework.UI;
 using Bunifu.UI.WinForms;
+using QuanLyNhaHang.BusinessLayer;
+using QuanLyNhaHang.DataLayer;
+using QuanLyNhaHang.Entities;
 
 namespace QuanLyNhaHang.GUI
 {
     public partial class fLogin : Form
     {
+        public static string username = "";
+        public static string password = "";
+        public static string tenchucvu = "";
+        public static string tennhanvien = "";
+
+        TaiKhoanBLL bllTaiKhoan = new TaiKhoanBLL();
+
         public fLogin()
         {
             InitializeComponent();
@@ -50,9 +60,23 @@ namespace QuanLyNhaHang.GUI
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            fMain fmain = new fMain();
-            fmain.Show();
+            username = txt_Username.Text;
+            password = txt_Password.Text;
+            TaiKhoan us = new TaiKhoan();
+            us.TenDangNhap = txt_Username.Text;
+            us.MatKhau = txt_Password.Text;
+
+            if (bllTaiKhoan.ExistUser(us) == true)
+            {
+                tenchucvu = bllTaiKhoan.GetTenChucVu(UserLogin.MaChucVu);
+                tennhanvien = bllTaiKhoan.GetTenNhanVien(UserLogin.MaNhanVien);
+
+                this.Hide();
+                fMain fmain = new fMain();
+                fmain.Show();
+            }
+            else
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

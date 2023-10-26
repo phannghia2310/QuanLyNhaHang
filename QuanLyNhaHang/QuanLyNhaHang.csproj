@@ -337,6 +337,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\BanBLL.cs" />
+    <Compile Include="BusinessLayer\ChiTietHoaDonBLL.cs" />
+    <Compile Include="BusinessLayer\ChucVuBLL.cs" />
+    <Compile Include="BusinessLayer\DanhMucBLL.cs" />
+    <Compile Include="BusinessLayer\HoaDonBLL.cs" />
+    <Compile Include="BusinessLayer\KhuVucBLL.cs" />
+    <Compile Include="BusinessLayer\MonAnBLL.cs" />
+    <Compile Include="BusinessLayer\NhanVienBLL.cs" />
+    <Compile Include="BusinessLayer\TaiKhoanBLL.cs" />
     <Compile Include="DataLayer\DataAccess.cs" />
     <Compile Include="DataLayer\SqlHelper.cs" />
     <Compile Include="Entities\Ban.cs" />
@@ -349,6 +358,18 @@
     <Compile Include="Entities\NhanVien.cs" />
     <Compile Include="Entities\TaiKhoan.cs" />
     <Compile Include="Entities\UserLogin.cs" />
+    <Compile Include="Forms\User Controls\UC_Location.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\User Controls\UC_Location.Designer.cs">
+      <DependentUpon>UC_Location.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User Controls\UC_Table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\User Controls\UC_Table.Designer.cs">
+      <DependentUpon>UC_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -506,9 +527,7 @@
     <Content Include="Scripts\chart.js" />
     <Content Include="Scripts\chart.min.js" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BusinessLayer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
