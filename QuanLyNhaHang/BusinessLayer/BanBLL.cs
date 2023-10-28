@@ -15,8 +15,16 @@ namespace QuanLyNhaHang.BusinessLayer
 
         public DataTable GetDSBan()
         {
-            string select = "SELECT * FROM Ban";
+            string select = "SELECT b.MaBan, b.TenBan, b.TrangThai, kv.TenKhuVuc" +
+                            " FROM Ban b, KhuVuc kv" +
+                            " WHERE b.MaKhuVuc = kv.MaKhuVuc";
             return da.GetDataTable(select);
+        }
+        
+        public string GetMaBan()
+        {
+            string select = "SELECT TOP 1 MaBan FROM Ban ORDER BY MaBan DESC";
+            return da.GetLastID(select);
         }
 
         public void Insert(Ban b)
@@ -35,6 +43,30 @@ namespace QuanLyNhaHang.BusinessLayer
         {
             string query = "DELETE FROM Ban WHERE MaBan='" + b.MaBan + "'";
             da.ExecuteNonQuery(query);
+        }
+
+        public DataTable SearchByTenBan(string TenBan)
+        {
+            string select = "SELECT b.MaBan, b.TenBan, b.TrangThai, kv.TenKhuVuc" +
+                            " FROM Ban b, KhuVuc kv" +
+                            " WHERE b.MaKhuVuc = kv.MaKhuVuc AND b.TenBan LIKE N'%" + TenBan + "%'";
+            return da.GetDataTable(select);
+        }
+
+        public DataTable SearchByTenKhuVuc(string TenKhuVuc)
+        {
+            string select = "SELECT b.MaBan, b.TenBan, b.TrangThai, kv.TenKhuVuc" +
+                            " FROM Ban b, KhuVuc kv" +
+                            " WHERE b.MaKhuVuc = kv.MaKhuVuc AND kv.TenKhuVuc LIKE N'%" + TenKhuVuc + "%'";
+            return da.GetDataTable(select);
+        }
+
+        public DataTable SearchByTrangThai(string TrangThai)
+        {
+            string select = "SELECT b.MaBan, b.TenBan, b.TrangThai, kv.TenKhuVuc" +
+                            " FROM Ban b, KhuVuc kv" +
+                            " WHERE b.MaKhuVuc = kv.MaKhuVuc AND b.TrangThai LIKE N'%" + TrangThai + "%'";
+            return da.GetDataTable(select);
         }
     }
 }

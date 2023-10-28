@@ -34,22 +34,22 @@ namespace QuanLyNhaHang.GUI
             tk = new TaiKhoan();
             tk.TenDangNhap = txt_TenDangNhap.Text;
             tk.MatKhau = txt_MatKhau.Text;
-            tk.MaNhanVien = cmb_MaNhanVien.Text;
-            tk.MaChucVu = cmb_MaChucVu.Text;
+            tk.MaNhanVien = cmb_MaNhanVien.SelectedValue.ToString();
+            tk.MaChucVu = cmb_MaChucVu.SelectedValue.ToString();
         }
 
         void LockControl()
         {
-            txt_TenDangNhap.ReadOnly = true;
-            txt_MatKhau.ReadOnly = true;
+            txt_TenDangNhap.Enabled = false;
+            txt_MatKhau.Enabled = false;
             cmb_MaNhanVien.Enabled = false;
             cmb_MaChucVu.Enabled = false;
         }
 
         void UnlockControl()
         {
-            txt_TenDangNhap.ReadOnly = false;
-            txt_MatKhau.ReadOnly = false;
+            txt_TenDangNhap.Enabled = true;
+            txt_MatKhau.Enabled = true;
             cmb_MaNhanVien.Enabled = true;
             cmb_MaChucVu.Enabled = true;
         }
@@ -88,17 +88,20 @@ namespace QuanLyNhaHang.GUI
                 cmb_MaChucVu.Focus();
                 return false;
             }
-            if (bllTaiKhoan.ExistUser(txt_TenDangNhap.Text))
+            if(flag == "Add")
             {
-                MessageBox.Show("Tài khoản: " + txt_TenDangNhap.Text + " đã được sử dụng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_TenDangNhap.Focus();
-                return false;
-            }
-            if (da.CheckKey("SELECT MaNhanVien FROM TaiKhoan WHERE MaNhanVien='" + cmb_MaNhanVien.Text + "'"))
-            {
-                MessageBox.Show("Nhân viên " + cmb_MaNhanVien.Text + " đã có tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cmb_MaNhanVien.Focus();
-                return false;
+                if (bllTaiKhoan.ExistUser(txt_TenDangNhap.Text))
+                {
+                    MessageBox.Show("Tài khoản: " + txt_TenDangNhap.Text + " đã được sử dụng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_TenDangNhap.Focus();
+                    return false;
+                }
+                if (da.CheckKey("SELECT MaNhanVien FROM TaiKhoan WHERE MaNhanVien='" + cmb_MaNhanVien.Text + "'"))
+                {
+                    MessageBox.Show("Nhân viên " + cmb_MaNhanVien.Text + " đã có tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmb_MaNhanVien.Focus();
+                    return false;
+                }
             }
             return true;
         }
@@ -118,6 +121,7 @@ namespace QuanLyNhaHang.GUI
         private void fAccount_Load(object sender, EventArgs e)
         {
             dgv_TaiKhoan.DataSource = bllTaiKhoan.GetDSTaiKhoan();
+            dgv_TaiKhoan.ReadOnly = true;
 
             cmb_MaNhanVien.DataSource = bllNhanVien.GetDSNhanVien();
             cmb_MaNhanVien.DisplayMember = "MaNhanVien";
@@ -127,6 +131,7 @@ namespace QuanLyNhaHang.GUI
             cmb_MaChucVu.DisplayMember = "MaChucVu";
             cmb_MaChucVu.ValueMember = "MaChucVu";
 
+            txt_TimKiem.Text = "";
             rb_TenDangNhap.Checked = true;
             LockControl();
         }
@@ -203,12 +208,13 @@ namespace QuanLyNhaHang.GUI
                     dgv_TaiKhoan.DataSource = bllTaiKhoan.GetDSTaiKhoan();
                 }
             }
+
+            fAccount_Load(sender, e);
         }
 
         private void btn_LamMoi_Click(object sender, EventArgs e)
         {
-            ClearText();
-            UnlockControl();
+            fAccount_Load(sender, e);
         }
     }
 }

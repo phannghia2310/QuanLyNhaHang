@@ -19,6 +19,12 @@ namespace QuanLyNhaHang.BusinessLayer
             return da.GetDataTable(select);
         }
 
+        public string GetMaKhuVuc()
+        {
+            string select = "SELECT TOP 1 MaKhuVuc FROM KhuVuc ORDER BY MaKhuVuc DESC";
+            return da.GetLastID(select);
+        }
+
         public void Insert(KhuVuc kv)
         {
             string query = "INSERT INTO KhuVuc VALUES ('" + kv.MaKhuVuc + "', N'" + kv.TenKhuVuc + "')";
@@ -35,6 +41,12 @@ namespace QuanLyNhaHang.BusinessLayer
         {
             string query = "DELETE FROM KhuVuc WHERE MaKhuVuc='" + kv.MaKhuVuc + "'";
             da.ExecuteNonQuery(query);
+        }
+
+        public DataTable SearchByTenKhuVuc(string TenKhuVuc)
+        {
+            string select = "SELECT * FROM KhuVuc WHERE TenKhuVuc LIKE N'%" + TenKhuVuc + "%'";
+            return da.GetDataTable(select);
         }
     }
 }

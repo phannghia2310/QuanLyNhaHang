@@ -23,7 +23,7 @@ namespace QuanLyNhaHang.DataLayer
 
         public void Open()
         {
-            if(cnn.State == System.Data.ConnectionState.Open)
+            if(cnn.State == System.Data.ConnectionState.Closed)
             {
                 cnn.Open();
             }
@@ -31,7 +31,7 @@ namespace QuanLyNhaHang.DataLayer
 
         public void Close()
         {
-            if(cnn.State == System.Data.ConnectionState.Closed)
+            if(cnn.State == System.Data.ConnectionState.Open)
             {
                 cnn.Close();
             }
@@ -59,21 +59,57 @@ namespace QuanLyNhaHang.DataLayer
 
             try
             {
-                using (cnn = new SqlConnection(strConnection))
+                //using (cnn = new SqlConnection(strConnection))
+                //{
+                //    cnn.Open();
+                //    using (cmd = new SqlCommand(select, cnn))
+                //    {
+                //        using (SqlDataReader reader = cmd.ExecuteReader())
+                //        {
+                //            while (reader.Read())
+                //            {
+                //                value = (string)(reader[$"{colName}"]);
+                //            }
+                //        }
+                //    }
+                //    cnn.Close();
+                //}
+
+                Open();
+                cmd = new SqlCommand(select, cnn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    cnn.Open();
-                    using (cmd = new SqlCommand(select, cnn))
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                value = (string)(reader[$"{colName}"]);
-                            }
-                        }
-                    }
-                    cnn.Close();
+                    value = (string)(reader[$"{colName}"]);
                 }
+                Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return value;
+        }
+
+        public string GetLastID(string select)
+        {
+            string value = "";
+
+            try
+            {
+                //using(cnn = new SqlConnection(strConnection))
+                //{
+                //    cnn.Open();
+                //    using(cmd = new SqlCommand(select, cnn))
+                //    {
+                //        value = (string)cmd.ExecuteScalar();
+                //    }
+                //    cnn.Close();
+                //}
+                Open();
+                cmd = new SqlCommand(select, cnn);
+                value = (string)cmd.ExecuteScalar();
+                Close();
             }
             catch (SqlException ex)
             {

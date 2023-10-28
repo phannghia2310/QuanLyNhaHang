@@ -15,13 +15,21 @@ namespace QuanLyNhaHang.BusinessLayer
         
         public DataTable GetDSNhanVien()
         {
-            string select = "SELECT * FROM NhanVien";
+            string select = "SELECT nv.MaNhanVien, nv.TenNhanVien, nv.GioiTinh, nv.NgaySinh, nv.DiaChi, nv.SDT, cv.TenChucVu" +
+                            " FROM NhanVien nv, ChucVu cv" +
+                            " WHERE nv.MaChucVu = cv.MaChucVu";
             return da.GetDataTable(select);
+        }
+
+        public string GetMaNhanVien()
+        {
+            string select = "SELECT TOP 1 MaNhanVien FROM NhanVien ORDER BY MaNhanVien DESC";
+            return da.GetLastID(select);
         }
 
         public void Insert(NhanVien nv)
         {
-            string query = "INSERT INTO NhanVien VALUES ('" + nv.MaNhanVien + "', N'" + nv.TenNhanVien  +"', N'" + nv.GioiTinh + "', '" + nv.NgaySinh + "', N'" + nv.DiaChi + "', '" + nv.SDT + "', '" + nv.MaChucVu + "'";
+            string query = "INSERT INTO NhanVien VALUES ('" + nv.MaNhanVien + "', N'" + nv.TenNhanVien  +"', N'" + nv.GioiTinh + "', '" + nv.NgaySinh + "', N'" + nv.DiaChi + "', '" + nv.SDT + "', '" + nv.MaChucVu + "')";
             da.ExecuteNonQuery(query);
         }
 
@@ -35,6 +43,22 @@ namespace QuanLyNhaHang.BusinessLayer
         {
             string query = "DELETE FROM NhanVien WHERE MaNhanVien='" + nv.MaNhanVien + "'";
             da.ExecuteNonQuery(query);
+        }
+
+        public DataTable SearchByTenNhanVien(string TenNhanVien)
+        {
+            string select = "SELECT nv.MaNhanVien, nv.TenNhanVien, nv.GioiTinh, nv.NgaySinh, nv.DiaChi, nv.SDT, cv.TenChucVu" +
+                            " FROM NhanVien nv, ChucVu cv" +
+                            " WHERE nv.MaChucVu = cv.MaChucVu AND nv.TenNhanVien LIKE N'%" + TenNhanVien + "%'";
+            return da.GetDataTable(select);
+        }
+
+        public DataTable SearchByTenChucVu(string TenChucVu)
+        {
+            string select = "SELECT nv.MaNhanVien, nv.TenNhanVien, nv.GioiTinh, nv.NgaySinh, nv.DiaChi, nv.SDT, cv.TenChucVu" +
+                            " FROM NhanVien nv, ChucVu cv" +
+                            " WHERE nv.MaChucVu = cv.MaChucVu AND cv.TenChucVu LIKE N'%" + TenChucVu + "%'";
+            return da.GetDataTable(select);
         }
     }
 }

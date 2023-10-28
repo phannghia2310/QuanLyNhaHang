@@ -128,7 +128,7 @@
             // guna2CirclePictureBox1
             // 
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
+            this.guna2CirclePictureBox1.Image = global::QuanLyNhaHang.Properties.Resources.cooking;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(125, 36);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
@@ -468,6 +468,7 @@
             this.label4.Size = new System.Drawing.Size(247, 26);
             this.label4.TabIndex = 1;
             this.label4.Text = "QUẢN LÝ THỰC ĐƠN";
+            this.label4.Click += new System.EventHandler(this.btn_Menu_Click);
             // 
             // pictureBox4
             // 
@@ -481,6 +482,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.btn_Menu_Click);
             // 
             // btn_Location
             // 

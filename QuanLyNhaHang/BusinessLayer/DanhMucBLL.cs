@@ -19,6 +19,12 @@ namespace QuanLyNhaHang.BusinessLayer
             return da.GetDataTable(select);
         }
 
+        public string GetMaDanhMuc()
+        {
+            string select = "SELECT TOP 1 MaDanhMuc FROM DanhMuc ORDER BY MaDanhMuc DESC";
+            return da.GetLastID(select);
+        }
+
         public void Insert(DanhMuc dm)
         {
             string query = "INSERT INTO DanhMuc VALUES ('" + dm.MaDanhMuc + "', N'" + dm.TenDanhMuc + "')";
@@ -35,6 +41,12 @@ namespace QuanLyNhaHang.BusinessLayer
         {
             string query = "DELETE FROM DanhMuc WHERE MaDanhMuc='" + dm.MaDanhMuc + "'";
             da.ExecuteNonQuery(query);
+        }
+
+        public DataTable SearchByTenDanhMuc(string TenDanhMuc)
+        {
+            string select = "SELECT * FROM DanhMuc WHERE TenDanhMuc LIKE N'%" + TenDanhMuc + "%'";
+            return da.GetDataTable(select);
         }
     }
 }

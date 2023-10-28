@@ -15,13 +15,21 @@ namespace QuanLyNhaHang.BusinessLayer
 
         public DataTable GetDsMonAn()
         {
-            string select = "SELECT * FROM MonAn";
+            string select = "SELECT ma.MaMonAn, ma.TenMonAn, ma.DonGia, ma.DVT, dm.TenDanhMuc" +
+                            " FROM MonAn ma, DanhMuc dm" +
+                            " WHERE ma.MaDanhMuc = dm.MaDanhMuc";
             return da.GetDataTable(select);
+        }
+
+        public string GetMaMonAn()
+        {
+            string select = "SELECT TOP 1 MaMonAn FROM MonAn ORDER BY MaMonAn DESC";
+            return da.GetLastID(select);
         }
 
         public void Insert(MonAn ma)
         {
-            string query = "INSERT INTO MonAn VALUES ('" + ma.MaMonAn + "', N'" + ma.TenMonAn + "', " + ma.DonGia + ", N'" + ma.DVT + "', '" + ma.MaDanhMuc + "'";
+            string query = "INSERT INTO MonAn VALUES ('" + ma.MaMonAn + "', N'" + ma.TenMonAn + "', " + ma.DonGia + ", N'" + ma.DVT + "', '" + ma.MaDanhMuc + "')";
             da.ExecuteNonQuery(query);
         }
 
@@ -35,6 +43,22 @@ namespace QuanLyNhaHang.BusinessLayer
         {
             string query = "DELETE FROM MonAn WHERE MaMonAn='" + ma.MaMonAn + "'";
             da.ExecuteNonQuery(query);
+        }
+
+        public DataTable SearchByTenMonAn(string TenMonAn)
+        {
+            string select = "SELECT ma.MaMonAn, ma.TenMonAn, ma.DonGia, ma.DVT, dm.TenDanhMuc" +
+                            " FROM MonAn ma, DanhMuc dm" +
+                            " WHERE ma.MaDanhMuc = dm.MaDanhMuc AND ma.TenMonAn LIKE N'%" + TenMonAn + "%'";
+            return da.GetDataTable(select);
+        }
+
+        public DataTable SearchByTenDanhMuc(string TenDanhMuc)
+        {
+            string select = "SELECT ma.MaMonAn, ma.TenMonAn, ma.DonGia, ma.DVT, dm.TenDanhMuc" +
+                            " FROM MonAn ma, DanhMuc dm" +
+                            " WHERE ma.MaDanhMuc = dm.MaDanhMuc AND dm.TenDanhMuc LIKE N'%" + TenDanhMuc + "%'";
+            return da.GetDataTable(select);
         }
     }
 }

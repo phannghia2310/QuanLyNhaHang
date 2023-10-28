@@ -15,13 +15,15 @@ namespace QuanLyNhaHang.BusinessLayer
 
         public DataTable GetDSHoaDon()
         {
-            string select = "SELECT * FROM HoaDon";
+            string select = "SELECT hd.MaHoaDon, hd.NgayBan, hd.TongTien, hd.TrangThai, nv.TenNhanVien" +
+                            " FROM HoaDon hd, NhanVien nv" +
+                            " WHERE hd.MaNhanVien = nv.MaNhanVien";
             return da.GetDataTable(select);
         }
 
         public void Insert(HoaDon hd)
         {
-            string query = "INSERT INTO HoaDon VALUES ('" + hd.MaHoaDon + "', '" + hd.NgayBan + "', " + hd.TongTien + ", N'" + hd.TrangThai + "', '" + hd.MaNhanVien + "'";
+            string query = "INSERT INTO HoaDon VALUES ('" + hd.MaHoaDon + "', '" + hd.NgayBan + "', " + hd.TongTien + ", N'" + hd.TrangThai + "', '" + hd.MaNhanVien + "')";
             da.ExecuteNonQuery(query);
         }
 
@@ -35,6 +37,30 @@ namespace QuanLyNhaHang.BusinessLayer
         {
             string query = "DELETE FROM HoaDon WHERE MaHoaDon='" + hd.MaHoaDon + "'";
             da.ExecuteNonQuery(query);
+        }
+
+        public DataTable ThongKeTheoNgay(string Ngay)
+        {
+            string select = "SELECT DISTINCT hd.MaHoaDon, hd.NgayBan, hd.TongTien, hd.TrangThai, nv.TenNhanVien" +
+                            " FROM HoaDon hd, NhanVien nv" +
+                            " WHERE hd.MaNhanVien = nv.MaNhanVien AND hd.NgayBan LIKE '" + Ngay + "'";
+            return da.GetDataTable (select);
+        }
+
+        public DataTable ThongKeTheoThang(string Thang, string Nam)
+        {
+            string select = "SELECT DISTINCT hd.MaHoaDon, hd.NgayBan, hd.TongTien, hd.TrangThai, nv.TenNhanVien" +
+                            " FROM HoaDon hd, NhanVien nv" +
+                            " WHERE hd.MaNhanVien = nv.MaNhanVien AND MONTH(hd.NgayBan) = " + Thang + " AND YEAR(hd.NgayBan) = " + Nam;
+            return da.GetDataTable (select);
+        }
+
+        public DataTable ThongKeTheoKhoang(string TuNgay, string DenNgay)
+        {
+            string select = "SELECT DISTINCT hd.MaHoaDon, hd.NgayBan, hd.TongTien, hd.TrangThai, nv.TenNhanVien" +
+                            " FROM HoaDon hd, NhanVien nv" +
+                            " WHERE hd.MaNhanVien = nv.MaNhanVien AND hd.NgayBan >= '" + TuNgay + "' AND hd.NgayBan <= '" + DenNgay + "'";
+            return da.GetDataTable(select);
         }
     }
 }
