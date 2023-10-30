@@ -540,6 +540,7 @@
     <None Include="Resources\month.png" />
     <None Include="Resources\schedule.png" />
     <None Include="Resources\refresh.png" />
+    <None Include="Resources\table.png" />
     <Content Include="Scripts\chart.js" />
     <Content Include="Scripts\chart.min.js" />
   </ItemGroup>

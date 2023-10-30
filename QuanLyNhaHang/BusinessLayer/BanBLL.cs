@@ -20,6 +20,12 @@ namespace QuanLyNhaHang.BusinessLayer
                             " WHERE b.MaKhuVuc = kv.MaKhuVuc";
             return da.GetDataTable(select);
         }
+
+        public DataTable GetBanByMaKhuVuc(string id)
+        {
+            string select = "SELECT * FROM Ban WHERE MaKhuVuc='" + id + "'";
+            return da.GetDataTable(select);
+        }
         
         public string GetMaBan()
         {

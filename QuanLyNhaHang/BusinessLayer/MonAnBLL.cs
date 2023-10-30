@@ -21,6 +21,12 @@ namespace QuanLyNhaHang.BusinessLayer
             return da.GetDataTable(select);
         }
 
+        public DataTable GetMonAnByMaDanhMuc(string MaDanhMuc)
+        {
+            string select = "SELECT * FROM MonAn WHERE MaDanhMuc='" + MaDanhMuc + "'";
+            return da.GetDataTable(select);
+        }
+
         public string GetMaMonAn()
         {
             string select = "SELECT TOP 1 MaMonAn FROM MonAn ORDER BY MaMonAn DESC";

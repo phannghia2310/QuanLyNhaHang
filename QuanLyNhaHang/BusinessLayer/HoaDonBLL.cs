@@ -20,6 +20,12 @@ namespace QuanLyNhaHang.BusinessLayer
                             " WHERE hd.MaNhanVien = nv.MaNhanVien";
             return da.GetDataTable(select);
         }
+        
+        public string GetMaHoaDon()
+        {
+            string select = "SELECT TOP 1 MaHoaDon FROM HoaDon ORDER BY MaHoaDon DESC";
+            return da.GetLastID(select);
+        }
 
         public void Insert(HoaDon hd)
         {

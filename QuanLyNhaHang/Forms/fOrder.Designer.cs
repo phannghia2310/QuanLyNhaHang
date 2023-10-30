@@ -31,17 +31,22 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fOrder));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grb_Ban = new System.Windows.Forms.GroupBox();
+            this.panel_Table = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmb_KhuVuc = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panel_MonAn = new System.Windows.Forms.Panel();
+            this.txt_TimKiem = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cmb_DanhMuc = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_LamMoi = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txt_MaHoaDon = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -63,19 +68,31 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.time_Order = new System.Windows.Forms.Timer(this.components);
+            this.cms_Trong = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.im_GoiMon = new System.Windows.Forms.ToolStripMenuItem();
+            this.im_DatBan = new System.Windows.Forms.ToolStripMenuItem();
+            this.cms_DatTruoc = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.im_GoiMonDT = new System.Windows.Forms.ToolStripMenuItem();
+            this.im_HuyDatBan = new System.Windows.Forms.ToolStripMenuItem();
+            this.cms_CoNguoi = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.im_ChuyenBan = new System.Windows.Forms.ToolStripMenuItem();
+            this.im_GopBan = new System.Windows.Forms.ToolStripMenuItem();
             this.gradientPanel1 = new QuanLyNhaHang.GradientPanel();
             this.btn_Hide = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Close = new System.Windows.Forms.PictureBox();
-            this.txt_MaHoaDon = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.grb_Ban.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_HoaDon)).BeginInit();
+            this.cms_Trong.SuspendLayout();
+            this.cms_DatTruoc.SuspendLayout();
+            this.cms_CoNguoi.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Hide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
@@ -83,7 +100,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.grb_Ban);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 100);
@@ -91,15 +108,25 @@
             this.panel1.Size = new System.Drawing.Size(434, 723);
             this.panel1.TabIndex = 1;
             // 
-            // groupBox2
+            // grb_Ban
             // 
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(25, 149);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(390, 541);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Danh sách bàn";
+            this.grb_Ban.Controls.Add(this.panel_Table);
+            this.grb_Ban.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_Ban.Location = new System.Drawing.Point(25, 149);
+            this.grb_Ban.Name = "grb_Ban";
+            this.grb_Ban.Size = new System.Drawing.Size(390, 541);
+            this.grb_Ban.TabIndex = 1;
+            this.grb_Ban.TabStop = false;
+            this.grb_Ban.Text = "Danh sách bàn";
+            // 
+            // panel_Table
+            // 
+            this.panel_Table.AutoScroll = true;
+            this.panel_Table.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Table.Location = new System.Drawing.Point(3, 22);
+            this.panel_Table.Name = "panel_Table";
+            this.panel_Table.Size = new System.Drawing.Size(384, 516);
+            this.panel_Table.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -116,10 +143,13 @@
             // 
             this.cmb_KhuVuc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmb_KhuVuc.FormattingEnabled = true;
+            this.cmb_KhuVuc.Items.AddRange(new object[] {
+            "Tất cả"});
             this.cmb_KhuVuc.Location = new System.Drawing.Point(43, 42);
             this.cmb_KhuVuc.Name = "cmb_KhuVuc";
             this.cmb_KhuVuc.Size = new System.Drawing.Size(194, 28);
             this.cmb_KhuVuc.TabIndex = 0;
+            this.cmb_KhuVuc.SelectedIndexChanged += new System.EventHandler(this.cmb_KhuVuc_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -133,6 +163,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txt_TimKiem);
+            this.groupBox4.Controls.Add(this.panel_MonAn);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(30, 149);
             this.groupBox4.Name = "groupBox4";
@@ -140,6 +172,25 @@
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách món ăn";
+            // 
+            // panel_MonAn
+            // 
+            this.panel_MonAn.AutoScroll = true;
+            this.panel_MonAn.BackColor = System.Drawing.Color.White;
+            this.panel_MonAn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_MonAn.Location = new System.Drawing.Point(3, 69);
+            this.panel_MonAn.Name = "panel_MonAn";
+            this.panel_MonAn.Size = new System.Drawing.Size(423, 469);
+            this.panel_MonAn.TabIndex = 0;
+            // 
+            // txt_TimKiem
+            // 
+            this.txt_TimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_TimKiem.Location = new System.Drawing.Point(34, 37);
+            this.txt_TimKiem.Name = "txt_TimKiem";
+            this.txt_TimKiem.Size = new System.Drawing.Size(359, 26);
+            this.txt_TimKiem.TabIndex = 0;
+            this.txt_TimKiem.Text = "Tên món ăn...";
             // 
             // groupBox3
             // 
@@ -159,6 +210,7 @@
             this.cmb_DanhMuc.Name = "cmb_DanhMuc";
             this.cmb_DanhMuc.Size = new System.Drawing.Size(185, 28);
             this.cmb_DanhMuc.TabIndex = 0;
+            this.cmb_DanhMuc.SelectedIndexChanged += new System.EventHandler(this.cmb_DanhMuc_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -174,6 +226,7 @@
             // btn_LamMoi
             // 
             this.btn_LamMoi.BorderRadius = 10;
+            this.btn_LamMoi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_LamMoi.CustomImages.Image = global::QuanLyNhaHang.Properties.Resources.refresh;
             this.btn_LamMoi.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_LamMoi.CustomImages.ImageSize = new System.Drawing.Size(37, 37);
@@ -195,6 +248,7 @@
             // guna2Button1
             // 
             this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.guna2Button1.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.CustomImages.ImageSize = new System.Drawing.Size(40, 40);
@@ -210,7 +264,7 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(203, 72);
             this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "Thanh toán";
+            this.guna2Button1.Text = " Thanh toán";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox5
@@ -245,6 +299,26 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Thông tin bàn đang phục vụ";
             // 
+            // txt_MaHoaDon
+            // 
+            this.txt_MaHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_MaHoaDon.Location = new System.Drawing.Point(117, 40);
+            this.txt_MaHoaDon.Name = "txt_MaHoaDon";
+            this.txt_MaHoaDon.Size = new System.Drawing.Size(111, 22);
+            this.txt_MaHoaDon.TabIndex = 23;
+            this.txt_MaHoaDon.Text = "    ";
+            this.txt_MaHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(21, 40);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 20);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Hóa đơn:";
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -277,7 +351,7 @@
             this.txt_KhuyenMai.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_KhuyenMai.Location = new System.Drawing.Point(288, 500);
             this.txt_KhuyenMai.Name = "txt_KhuyenMai";
-            this.txt_KhuyenMai.Size = new System.Drawing.Size(49, 26);
+            this.txt_KhuyenMai.Size = new System.Drawing.Size(59, 26);
             this.txt_KhuyenMai.TabIndex = 18;
             // 
             // label16
@@ -439,6 +513,72 @@
             // 
             this.time_Order.Tick += new System.EventHandler(this.time_Order_Tick);
             // 
+            // cms_Trong
+            // 
+            this.cms_Trong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cms_Trong.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cms_Trong.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.im_GoiMon,
+            this.im_DatBan});
+            this.cms_Trong.Name = "cms_Trong";
+            this.cms_Trong.Size = new System.Drawing.Size(142, 52);
+            // 
+            // im_GoiMon
+            // 
+            this.im_GoiMon.Name = "im_GoiMon";
+            this.im_GoiMon.Size = new System.Drawing.Size(141, 24);
+            this.im_GoiMon.Text = "Gọi món";
+            // 
+            // im_DatBan
+            // 
+            this.im_DatBan.Name = "im_DatBan";
+            this.im_DatBan.Size = new System.Drawing.Size(141, 24);
+            this.im_DatBan.Text = "Đặt bàn";
+            // 
+            // cms_DatTruoc
+            // 
+            this.cms_DatTruoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cms_DatTruoc.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cms_DatTruoc.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.im_GoiMonDT,
+            this.im_HuyDatBan});
+            this.cms_DatTruoc.Name = "cms_DatTruoc";
+            this.cms_DatTruoc.Size = new System.Drawing.Size(169, 52);
+            // 
+            // im_GoiMonDT
+            // 
+            this.im_GoiMonDT.Name = "im_GoiMonDT";
+            this.im_GoiMonDT.Size = new System.Drawing.Size(168, 24);
+            this.im_GoiMonDT.Text = "Gọi món";
+            // 
+            // im_HuyDatBan
+            // 
+            this.im_HuyDatBan.Name = "im_HuyDatBan";
+            this.im_HuyDatBan.Size = new System.Drawing.Size(168, 24);
+            this.im_HuyDatBan.Text = "Hủy đặt bàn";
+            // 
+            // cms_CoNguoi
+            // 
+            this.cms_CoNguoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cms_CoNguoi.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cms_CoNguoi.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.im_ChuyenBan,
+            this.im_GopBan});
+            this.cms_CoNguoi.Name = "cms_CoNguoi";
+            this.cms_CoNguoi.Size = new System.Drawing.Size(167, 52);
+            // 
+            // im_ChuyenBan
+            // 
+            this.im_ChuyenBan.Name = "im_ChuyenBan";
+            this.im_ChuyenBan.Size = new System.Drawing.Size(166, 24);
+            this.im_ChuyenBan.Text = "Chuyển bàn";
+            // 
+            // im_GopBan
+            // 
+            this.im_GopBan.Name = "im_GopBan";
+            this.im_GopBan.Size = new System.Drawing.Size(166, 24);
+            this.im_GopBan.Text = "Gộp bàn";
+            // 
             // gradientPanel1
             // 
             this.gradientPanel1.Angle = 90F;
@@ -492,26 +632,6 @@
             this.btn_Close.TabStop = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
-            // txt_MaHoaDon
-            // 
-            this.txt_MaHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_MaHoaDon.Location = new System.Drawing.Point(117, 40);
-            this.txt_MaHoaDon.Name = "txt_MaHoaDon";
-            this.txt_MaHoaDon.Size = new System.Drawing.Size(111, 22);
-            this.txt_MaHoaDon.TabIndex = 23;
-            this.txt_MaHoaDon.Text = "    ";
-            this.txt_MaHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(21, 40);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 20);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Hóa đơn:";
-            // 
             // fOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -529,13 +649,19 @@
             this.Text = "fOrder";
             this.Load += new System.EventHandler(this.fOrder_Load);
             this.panel1.ResumeLayout(false);
+            this.grb_Ban.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_HoaDon)).EndInit();
+            this.cms_Trong.ResumeLayout(false);
+            this.cms_DatTruoc.ResumeLayout(false);
+            this.cms_CoNguoi.ResumeLayout(false);
             this.gradientPanel1.ResumeLayout(false);
             this.gradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Hide)).EndInit();
@@ -555,7 +681,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmb_KhuVuc;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grb_Ban;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cmb_DanhMuc;
@@ -585,5 +711,17 @@
         private System.Windows.Forms.Timer time_Order;
         private System.Windows.Forms.Label txt_MaHoaDon;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel_Table;
+        private System.Windows.Forms.ContextMenuStrip cms_Trong;
+        private System.Windows.Forms.ToolStripMenuItem im_GoiMon;
+        private System.Windows.Forms.ToolStripMenuItem im_DatBan;
+        private System.Windows.Forms.ContextMenuStrip cms_DatTruoc;
+        private System.Windows.Forms.ToolStripMenuItem im_GoiMonDT;
+        private System.Windows.Forms.ToolStripMenuItem im_HuyDatBan;
+        private System.Windows.Forms.ContextMenuStrip cms_CoNguoi;
+        private System.Windows.Forms.Panel panel_MonAn;
+        private System.Windows.Forms.ToolStripMenuItem im_ChuyenBan;
+        private System.Windows.Forms.ToolStripMenuItem im_GopBan;
+        private System.Windows.Forms.TextBox txt_TimKiem;
     }
 }
