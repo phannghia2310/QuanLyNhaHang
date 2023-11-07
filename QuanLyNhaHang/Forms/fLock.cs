@@ -1,4 +1,5 @@
 ﻿using QuanLyNhaHang.Entities;
+using QuanLyNhaHang.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,9 +28,18 @@ namespace QuanLyNhaHang.GUI
         {
             if(txt_PassWord.Text == UserLogin.MatKhau)
             {
-                this.Close();
-                fMain fmain = new fMain();
-                fmain.Show();
+                if(fLogin.tenchucvu == "Quản lý")
+                {
+                    this.Close();
+                    fMain fmain = new fMain();
+                    fmain.Show();
+                }
+                else
+                {
+                    this.Close();
+                    fCashier fCashier = new fCashier();
+                    fCashier.Show();
+                }
             }
         }
     }

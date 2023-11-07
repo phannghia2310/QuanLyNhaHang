@@ -16,6 +16,8 @@ namespace QuanLyNhaHang.Entities
         public int DonGia { get => _DonGia; set => _DonGia = value; }
         private string _DVT;
         public string DVT { get => _DVT; set => _DVT = value; }
+        private string _Anh;
+        public string Anh { get => _Anh; set => _Anh = value; }
         private string _MaDanhMuc;
         public string MaDanhMuc { get => _MaDanhMuc; set => _MaDanhMuc = value; }
 

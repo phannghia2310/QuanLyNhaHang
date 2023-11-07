@@ -46,6 +46,22 @@ namespace QuanLyNhaHang.BusinessLayer
             return da.GetDataTable(select);
         }
 
+        public TaiKhoan GetTaiKhoan(string TenDangNhap)
+        {
+            TaiKhoan tk = new TaiKhoan();
+            tk.TenDangNhap = TenDangNhap;
+
+            string select = "SELECT * FROM TaiKhoan WHERE TenDangNhap=N'" + TenDangNhap + "'";
+            DataTable dt = da.GetDataTable(select);
+            if(dt.Rows.Count > 0)
+            {
+                tk.MatKhau = dt.Rows[0]["MatKhau"].ToString();
+                tk.MaChucVu = dt.Rows[0]["MaChucVu"].ToString();
+                tk.MaNhanVien = dt.Rows[0]["MaNhanVien"].ToString();
+            }
+            return tk;
+        }
+
         public string GetTenChucVu(string MaChucVu)
         {
             string selest = "SELECT TenChucVu FROM ChucVu cv, TaiKhoan tk WHERE cv.MaChucVu=tk.MaChucVu AND tk.MaChucVu='" + MaChucVu + "'";

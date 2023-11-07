@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyNhaHang.BusinessLayer
 {
@@ -23,6 +24,26 @@ namespace QuanLyNhaHang.BusinessLayer
         {
             string select = "SELECT TOP 1 MaKhuVuc FROM KhuVuc ORDER BY MaKhuVuc DESC";
             return da.GetLastID(select);
+        }
+
+        public string GetMaKhuVucByTenKhuVuc(string TenKhuVuc)
+        {
+            string select = "SELECT DISTINCT MaKhuVuc FROM KhuVuc WHERE TenKhuVuc=N'" + TenKhuVuc + "'";
+            return da.GetValue(select, "MaKhuVuc");
+        }
+
+        public string GetTenKhuVucByMaKhuVuc(string MaKhuVuc)
+        {
+            string select = "SELECT DISTINCT TenKhuVuc FROM KhuVuc WHERE MaKhuVuc='" + MaKhuVuc + "'";
+            return da.GetValue(select, "TenKhuVuc");
+        }
+
+        public string GetTenKhuVucByTenBan(string TenBan)
+        {
+            string select = "SELECT DISTINCT kv.TenKhuVuc" +
+                            " FROM KhuVuc kv, Ban b" +
+                            " WHERE kv.MaKhuVuc=b.MaKhuVuc AND b.TenBan=N'" + TenBan + "'";
+            return da.GetValue(select, "TenKhuVuc");
         }
 
         public void Insert(KhuVuc kv)

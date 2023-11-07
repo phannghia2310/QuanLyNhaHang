@@ -19,6 +19,18 @@ namespace QuanLyNhaHang.BusinessLayer
             return da.GetDataTable(select);
         }
 
+        public string GetTenChucVuByMa(string MaChucVu)
+        {
+            string select = "SELECT DISTINCT TenChucVu FROM ChucVu WHERE MaChucVu='" + MaChucVu + "'";
+            return da.GetValue(select, "TenChucVu");
+        }
+
+        public string GetMaChucVuByTen(string TenChucVu)
+        {
+            string select = "SELECT DISTINCT MaChucVu FROM ChucVu WHERE TenChucVu=N'" + TenChucVu + "'";
+            return da.GetValue(select, "MaChucVu");
+        }
+
         public void Insert(ChucVu cv)
         {
             string query = "INSERT INTO ChucVu VALUES ('" + cv.MaChucVu + "', N'" + cv.TenChucVu + "')";

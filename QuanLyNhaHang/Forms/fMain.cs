@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyNhaHang.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,6 @@ namespace QuanLyNhaHang.GUI
 {
     public partial class fMain : Form
     {
-        private SqlConnection conn {  get; set; }
         public fMain()
         {
             InitializeComponent();
@@ -24,6 +24,14 @@ namespace QuanLyNhaHang.GUI
             lb_ChucVu.Text = fLogin.tenchucvu;
             lb_TenNhanVien.Text = fLogin.tennhanvien;
             time_DateTime.Start();
+        }
+
+
+        private void btn_Personal_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fPersonal fPersonal = new fPersonal();
+            fPersonal.Show();
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)

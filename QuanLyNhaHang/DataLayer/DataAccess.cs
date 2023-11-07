@@ -59,22 +59,6 @@ namespace QuanLyNhaHang.DataLayer
 
             try
             {
-                //using (cnn = new SqlConnection(strConnection))
-                //{
-                //    cnn.Open();
-                //    using (cmd = new SqlCommand(select, cnn))
-                //    {
-                //        using (SqlDataReader reader = cmd.ExecuteReader())
-                //        {
-                //            while (reader.Read())
-                //            {
-                //                value = (string)(reader[$"{colName}"]);
-                //            }
-                //        }
-                //    }
-                //    cnn.Close();
-                //}
-
                 Open();
                 cmd = new SqlCommand(select, cnn);
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -97,15 +81,6 @@ namespace QuanLyNhaHang.DataLayer
 
             try
             {
-                //using(cnn = new SqlConnection(strConnection))
-                //{
-                //    cnn.Open();
-                //    using(cmd = new SqlCommand(select, cnn))
-                //    {
-                //        value = (string)cmd.ExecuteScalar();
-                //    }
-                //    cnn.Close();
-                //}
                 Open();
                 cmd = new SqlCommand(select, cnn);
                 value = (string)cmd.ExecuteScalar();

@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace QuanLyNhaHang.BusinessLayer
 {
@@ -26,11 +27,35 @@ namespace QuanLyNhaHang.BusinessLayer
             string select = "SELECT * FROM Ban WHERE MaKhuVuc='" + id + "'";
             return da.GetDataTable(select);
         }
+
+        public string GetTenBanByMaBan(string MaBan)
+        {
+            string select = "SELECT DISTINCT TenBan FROM Ban WHERE MaBan='" + MaBan + "'";
+            return da.GetValue(select, "TenBan");
+        }
+
+        public DataTable GetBanByTrangThai(string TrangThai, string TenBan)
+        {
+            string select = "SELECT DISTINCT * FROM Ban WHERE TrangThai=N'" + TrangThai +  "' AND TenBan != '" + TenBan + "'";
+            return da.GetDataTable(select);
+        }
         
         public string GetMaBan()
         {
             string select = "SELECT TOP 1 MaBan FROM Ban ORDER BY MaBan DESC";
             return da.GetLastID(select);
+        }
+
+        public string GetMaBanByTenBan(string TenBan)
+        {
+            string select = "SELECT DISTINCT MaBan FROM Ban WHERE TenBan=N'" + TenBan + "'";
+            return da.GetValue(select, "MaBan");
+        }
+
+        public string GetMaKhuVucByTenBan(string TenBan)
+        {
+            string select = "SELECT DISTINCT MaKhuVuc FROM Ban WHERE TenBan=N'" + TenBan + "'";
+            return da.GetValue(select, "MaKhuVuc");
         }
 
         public void Insert(Ban b)
@@ -42,6 +67,12 @@ namespace QuanLyNhaHang.BusinessLayer
         public void Update(Ban b)
         {
             string query = "UPDATE Ban SET TenBan=N'" + b.TenBan + "', TrangThai=N'" + b.TrangThai + "', MaKhuVuc='" + b.MaKhuVuc + "'";
+            da.ExecuteNonQuery(query);
+        }
+
+        public void CapNhatTrangThaiBan(string TrangThai, string TenBan)
+        {
+            string query = "UPDATE Ban SET TrangThai=N'" + TrangThai + "' WHERE TenBan=N'" + TenBan + "'";
             da.ExecuteNonQuery(query);
         }
 

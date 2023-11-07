@@ -21,10 +21,37 @@ namespace QuanLyNhaHang.BusinessLayer
             return da.GetDataTable(select);
         }
 
+        public NhanVien GetNhanVienByMaNhanVien(string MaNhanVien)
+        {
+            NhanVien nv = new NhanVien();
+            nv.MaNhanVien = MaNhanVien;
+            
+            string select = "SELECT * FROM NhanVien WHERE MaNhanVien='" + MaNhanVien + "'";
+            DataTable dt = da.GetDataTable(select);
+
+            if(dt.Rows.Count > 0)
+            {
+                nv.TenNhanVien = dt.Rows[0]["TenNhanVien"].ToString();
+                nv.NgaySinh = DateTime.Parse(dt.Rows[0]["NgaySinh"].ToString());
+                nv.GioiTinh = dt.Rows[0]["GioiTinh"].ToString();
+                nv.SDT = dt.Rows[0]["SDT"].ToString();
+                nv.DiaChi = dt.Rows[0]["DiaChi"].ToString();
+                nv.MaChucVu = dt.Rows[0]["MaChucVu"].ToString();
+            }
+
+            return nv;
+        }
+
         public string GetMaNhanVien()
         {
             string select = "SELECT TOP 1 MaNhanVien FROM NhanVien ORDER BY MaNhanVien DESC";
             return da.GetLastID(select);
+        }
+
+        public string GetTenNhanVienByMaNhanVien(string MaNhanVien)
+        {
+            string select = "SELECT DISTINCT TenNhanVien FROM NhanVien WHERE MaNhanVien='" + MaNhanVien + "'";
+            return da.GetValue(select, "TenNhanVien");
         }
 
         public void Insert(NhanVien nv)

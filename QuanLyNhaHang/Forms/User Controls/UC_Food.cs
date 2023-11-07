@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,7 @@ namespace QuanLyNhaHang.GUI.User_Controls
             ma.TenMonAn = txt_TenMonAn.Text;
             ma.DonGia = Convert.ToInt32(txt_DonGia.Text);
             ma.DVT = txt_DVT.Text;
+            ma.Anh = lb_FileAnh.Text;
             ma.MaDanhMuc = cmb_MaDanhMuc.SelectedValue.ToString();
         }
 
@@ -44,6 +46,7 @@ namespace QuanLyNhaHang.GUI.User_Controls
             txt_DonGia.Enabled = false;
             txt_DVT.Enabled = false;
             cmb_MaDanhMuc.Enabled = false;
+            btn_LoadImage.Enabled = false;
         }
 
         void UnlockControl()
@@ -52,6 +55,7 @@ namespace QuanLyNhaHang.GUI.User_Controls
             txt_DonGia.Enabled = true;
             txt_DVT.Enabled = true;
             cmb_MaDanhMuc.Enabled = true;
+            btn_LoadImage.Enabled = true;
         }
 
         void ClearText()
@@ -79,6 +83,80 @@ namespace QuanLyNhaHang.GUI.User_Controls
             }
         }
 
+        string UnsigedTextAndRemoveSpaces(string text)
+        {
+            text = text.ToLower();
+
+            text = text.Replace(" ", "");
+            text = text.Replace("á", "a");
+            text = text.Replace("à", "a");
+            text = text.Replace("ả", "a");
+            text = text.Replace("ã", "a");
+            text = text.Replace("â", "a");
+            text = text.Replace("ấ", "a");
+            text = text.Replace("ầ", "a");
+            text = text.Replace("ẩ", "a");
+            text = text.Replace("ẫ", "a");
+            text = text.Replace("ậ", "a");
+            text = text.Replace("ă", "a");
+            text = text.Replace("ắ", "a");
+            text = text.Replace("ằ", "a");
+            text = text.Replace("ẳ", "a");
+            text = text.Replace("ẵ", "a");
+            text = text.Replace("ặ", "a");
+            text = text.Replace("é", "e");
+            text = text.Replace("è", "e");
+            text = text.Replace("ẻ", "e");
+            text = text.Replace("ẽ", "e");
+            text = text.Replace("ẹ", "e");
+            text = text.Replace("ê", "e");
+            text = text.Replace("ế", "e");
+            text = text.Replace("ề", "e");
+            text = text.Replace("ể", "e");
+            text = text.Replace("ễ", "e");
+            text = text.Replace("ệ", "e");
+            text = text.Replace("í", "i");
+            text = text.Replace("ì", "i");
+            text = text.Replace("ỉ", "i");
+            text = text.Replace("ĩ", "i");
+            text = text.Replace("ị", "i");
+            text = text.Replace("ô", "o");
+            text = text.Replace("ố", "o");
+            text = text.Replace("ồ", "o");
+            text = text.Replace("ổ", "o");
+            text = text.Replace("ỗ", "o");
+            text = text.Replace("ộ", "o");
+            text = text.Replace("ò", "o");
+            text = text.Replace("ỏ", "o");
+            text = text.Replace("õ", "o");
+            text = text.Replace("ọ", "o");
+            text = text.Replace("ơ", "o");
+            text = text.Replace("ớ", "o");
+            text = text.Replace("ờ", "o");
+            text = text.Replace("ở", "o");
+            text = text.Replace("ỡ", "o");
+            text = text.Replace("ợ", "o");
+            text = text.Replace("ú", "u");
+            text = text.Replace("ù", "u");
+            text = text.Replace("ủ", "u");
+            text = text.Replace("ũ", "u");
+            text = text.Replace("ụ", "u");
+            text = text.Replace("ư", "u");
+            text = text.Replace("ứ", "u");
+            text = text.Replace("ừ", "u");
+            text = text.Replace("ử", "u");
+            text = text.Replace("ữ", "u");
+            text = text.Replace("ự", "u");
+            text = text.Replace("ý", "y");
+            text = text.Replace("ỳ", "y");
+            text = text.Replace("ỷ", "y");
+            text = text.Replace("ỹ", "y");
+            text = text.Replace("ỵ", "y");
+
+            string newText = text;
+            return newText;
+        }
+
         bool CheckNhap()
         {
             if(string.IsNullOrWhiteSpace(txt_TenMonAn.Text))
@@ -104,6 +182,10 @@ namespace QuanLyNhaHang.GUI.User_Controls
                 MessageBox.Show("Bạn chưa chọn mã danh mục!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmb_MaDanhMuc.Focus();
                 return false;
+            }
+            if (pb_AnhMonAn.Image == null)
+            {
+                lb_FileAnh.Text = "Chưa có ảnh";
             }
             if(flag == "Add")
             {
@@ -139,9 +221,33 @@ namespace QuanLyNhaHang.GUI.User_Controls
             txt_TenMonAn.Text = dgv_MonAn.Rows[row].Cells["TenMonAn"].Value.ToString();
             txt_DonGia.Text = dgv_MonAn.Rows[row].Cells["DonGia"].Value.ToString();
             txt_DVT.Text = dgv_MonAn.Rows[row].Cells["DVT"].Value.ToString();
+            lb_FileAnh.Text = dgv_MonAn.Rows[row].Cells["Anh"].Value.ToString();
             cmb_MaDanhMuc.Text = dgv_MonAn.Rows[row].Cells["TenDanhMuc"].Value.ToString();
 
+            if(lb_FileAnh.Text == "Chưa có ảnh" || !File.Exists(@"C:\Users\phank\OneDrive\Documents\CODEWORK\VS-Code\PTTKHDT\QuanLyNhaHang\QuanLyNhaHang\Resources\" + lb_FileAnh.Text))
+            {
+                pb_AnhMonAn.Image = null;
+            }
+            else
+            {
+                pb_AnhMonAn.Image = Image.FromFile(@"C:\Users\phank\OneDrive\Documents\CODEWORK\VS-Code\PTTKHDT\QuanLyNhaHang\QuanLyNhaHang\Resources\" + lb_FileAnh.Text);
+            }
+
             LockCotrol();
+        }
+
+        private void btn_LoadImage_Click(object sender, EventArgs e)
+        {
+            openFile.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            openFile.Title = "Chọn ảnh";
+
+            if(openFile.ShowDialog() == DialogResult.OK)
+            {
+                string selectedImageFile = openFile.FileName;
+                string name = UnsigedTextAndRemoveSpaces(txt_TenMonAn.Text);
+                lb_FileAnh.Text = name + ".jpg";
+                pb_AnhMonAn.Image = Image.FromFile(selectedImageFile);
+            }
         }
 
         private void btn_ThemMoi_Click(object sender, EventArgs e)
@@ -231,6 +337,16 @@ namespace QuanLyNhaHang.GUI.User_Controls
                     GetDataMonAn();
                     bllMonAn.Insert(ma);
                     MessageBox.Show("Thêm món ăn thành công!!", "Thông báo");
+
+                    string savePath = @"C:\Users\phank\OneDrive\Documents\CODEWORK\VS-Code\PTTKHDT\QuanLyNhaHang\QuanLyNhaHang\Resources\";
+                    string fileName = lb_FileAnh.Text;
+                    string filePath = Path.Combine(savePath, fileName);
+                    if (File.Exists(filePath))
+                    {
+                        File.Delete(filePath);
+                    }
+                    pb_AnhMonAn.Image.Save(filePath);
+
                     dgv_MonAn.DataSource = bllMonAn.GetDsMonAn();
                 }
                 if(flag == "Edit")
@@ -238,6 +354,16 @@ namespace QuanLyNhaHang.GUI.User_Controls
                     GetDataMonAn();
                     bllMonAn.Update(ma);
                     MessageBox.Show("Cập nhật món ăn thành công!!", "Thông báo");
+
+                    string savePath = @"C:\Users\phank\OneDrive\Documents\CODEWORK\VS-Code\PTTKHDT\QuanLyNhaHang\QuanLyNhaHang\Resources\";
+                    string fileName = lb_FileAnh.Text;
+                    string filePath = Path.Combine(savePath, fileName);
+                    if (File.Exists(filePath))
+                    {
+                        File.Delete(filePath);
+                    }
+                    pb_AnhMonAn.Image.Save(filePath);
+
                     dgv_MonAn.DataSource = bllMonAn.GetDsMonAn();
                 }
             }

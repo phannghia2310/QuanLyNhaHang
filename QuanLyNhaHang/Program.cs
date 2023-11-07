@@ -1,4 +1,5 @@
-﻿using QuanLyNhaHang.GUI;
+﻿using QuanLyNhaHang.Forms;
+using QuanLyNhaHang.GUI;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -18,7 +19,7 @@ namespace QuanLyNhaHang
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fOrder());
+            Application.Run(new fLogin());
         }
     }
 }

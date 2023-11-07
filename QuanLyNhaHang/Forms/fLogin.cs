@@ -10,6 +10,7 @@ using Bunifu.UI.WinForms;
 using QuanLyNhaHang.BusinessLayer;
 using QuanLyNhaHang.DataLayer;
 using QuanLyNhaHang.Entities;
+using QuanLyNhaHang.Forms;
 
 namespace QuanLyNhaHang.GUI
 {
@@ -71,9 +72,18 @@ namespace QuanLyNhaHang.GUI
                 tenchucvu = bllTaiKhoan.GetTenChucVu(UserLogin.MaChucVu);
                 tennhanvien = bllTaiKhoan.GetTenNhanVien(UserLogin.MaNhanVien);
 
-                this.Hide();
-                fMain fmain = new fMain();
-                fmain.Show();
+                if(tenchucvu == "Quản lý")
+                {
+                    this.Hide();
+                    fMain fmain = new fMain();
+                    fmain.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    fCashier fCashier = new fCashier();
+                    fCashier.Show();
+                }
             }
             else
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
